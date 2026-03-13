@@ -233,7 +233,7 @@ getKeyChar());
         constraints.gridheigth = heigth;
         layout.setConstraints(component, constraints);
         container.add(component);
-}
+    }
 
 public class ProjetoCalculadora(){
         super ("Calculadora 6.0 (Orrico");
@@ -313,3 +313,78 @@ public class ProjetoCalculadora(){
         botao2dig.setFocusable(false);
         botao4dig.setFocusable(false);
         botao6dig.setFocusable(false);
+
+        constraints.anchor = GridBagConstraints.WEST;
+        constraints.weightx = 0;
+        constraints.weightx = 1;
+        constraints.fill = GridBagConstraints.BOTH;
+        addComponent(scroll, 0,0,5,1);
+        addComponent(visor, 1,0,5,1);
+        addComponent(botao2dig, 2,0,1,1);
+        addComponent(botao4dig, 2,1,1,1);
+        addComponent(botao6dig, 2,2,3,1);
+        constraints.weightx = 0;
+        constraints.weightx = 5;
+        addComponent(botaoPerc, 3,0,1,1);
+        addComponent(botaoCE, 3,4,1,1);
+        addComponent(botaoC, 4,4,1,1);
+        addComponent(botaoBackspace, 5,4,1,1);
+        addComponent(botaoDiv, 3,1,1,1);
+        addComponent(botaoMultip, 3,2,1,1);
+        addComponent(botaoMenos, 3,3,1,1);
+        addComponent(botao7, 4,0,1,1);
+        addComponent(botao8, 4,1,1,1);
+        addComponent(botao9, 4,2,1,1);
+        addComponent(botaoMais, 4,3,1,1);
+        addComponent(botao4, 5,0,1,1);
+        addComponent(botao5, 5,1,1,1);
+        addComponent(botao6, 5,2,1,1);
+        addComponent(botaoVirgula, 5,3,1,1);
+        addComponent(botaol, 6,0,1,1);
+        addComponent(botao2, 6,1,1,1);
+        addComponent(botao3, 6,2,1,1);
+        addComponent(botao0, 6,3,1,1);
+        addComponent(botaoTotal, 6,4,1,1);
+
+        trataEventosAcao handletAcao = new trataEventosAcao();
+        botaoC.addActionListener(handletAcao);
+        botaoCE.addActionListener(handletAcao);
+        botaoPerc.addActionListener(handletAcao);
+
+        botaoDiv.addActionListener(handletAcao);
+        botaoMultip.addActionListener(handletAcao);
+        botaoMenos.addActionListener(handletAcao);
+        botaoMais.addActionListener(handletAcao);
+        botaoTotal.addActionListener(handletAcao);
+        botaoVirgula.addActionListener(handletAcao);
+        botaol.addActionListener(handletAcao);
+        botao2.addActionListener(handletAcao);
+        botao3.addActionListener(handletAcao);
+        botao4.addActionListener(handletAcao);
+        botao5.addActionListener(handletAcao);
+        botao6.addActionListener(handletAcao);
+        botao7.addActionListener(handletAcao);
+        botao8.addActionListener(handletAcao);
+        botao9.addActionListener(handletAcao);
+        botao0.addActionListener(handletAcao);
+        botaoBackspace.addActionListener(handletAcao);
+
+        trataEventosFocus handlerFocus = new trataEventosFocus();
+        trataEventosRadio handletRadio = new trataEventosRadio();
+        botao2dig.addItemListener(handletRadio);
+        botao4dig.addItemListener(handletRadio);
+        botao6dig.addItemListener(handletRadio);
+        visor.addKeyListener(this);
+        setSize(285,480);
+        Dimension resVideo = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension tamForm = getSize();
+        setLocation((resVideo.width - tamForm.width)/2, (resVideo.height - 
+tamForm.height)/2);
+        setResizable(false);
+        setVisible(true);
+    }
+    public static void main(String[] args) {
+        ProjetoCalculadora app = new ProjetoCalculadora();
+        app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
